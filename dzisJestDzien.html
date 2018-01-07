@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>dzien</title>
+
+</head>
+
+<body>
+    <span>Dzis jest ... </span>
+    <script>
+        var span = document.createElement("span");
+        span.setAttribute("class", "date");
+        span.textContent = new Date().toDateString();
+        document.body.appendChild(span);
+    </script>
+</body>
+
+</html>
