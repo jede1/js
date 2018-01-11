@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>godzina systemowa</title>
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+
+</head>
+
+<body>
+    <div id="fffCzas"></div>
+    <div id="fffData"></div>
+</body>
+<script>
+    function liczenie(i) {
+        return (i < 10) ? '0' + i : i;
+    }
+
+    function showTextTime() {
+        const currentDate = new Date();
+        const days = ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"];
+        const textDate = liczenie(currentDate.getDate()) + "." + liczenie((currentDate.getMonth() + 1)) + "." + currentDate.getFullYear() + " - " + days[currentDate.getDay()];
+        const textTime = liczenie(currentDate.getHours()) + ":" + liczenie(currentDate.getMinutes()) + ":" + liczenie(currentDate.getSeconds());
+
+
+        document.querySelector('#fffData').innerHTML = textDate;
+        document.querySelector('#fffCzas').innerHTML = textTime;
+
+        setTimeout(function() {
+            showTextTime()
+        }, 1000);
+    }
+
+    showTextTime();
+</script>
+
+</html>
+
+</html>
